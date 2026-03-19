@@ -9,41 +9,49 @@ const rl = readline.createInterface({
 const adicionarDespesa = require("./services/adicionarDespesa");
 const listar = require("./services//listar");
 const totalGastos = require("./services/totalGastos");
-
+const remover = require("./services/remover");
+const sair = require("./services/sair");
 
 let listas = [];
 function menu() {
     
+    console.log("=============== MENU DE DESPESAS ===============\n");
     console.log("1 - Adicionar despesa.");1
     console.log("2 - Listar despesas.");
     console.log("3 - Mostrar total de gastos.");
     console.log("4 - Remover despesa.");
-    console.log("5 - Sair.");
+    console.log("0 - Sair.");
     
     rl.question(`\nEscolha uma opção: `, (opcao) => {
+
+        if ((opcao < 0) || (opcao >= 5)) {
+            console.log("\nOpção inválida, tente novamente!\n");
+            menu();
+            return
+        }
 
         opcao = Number(opcao);
 
         switch (opcao) {
-
+            
             case 1: 
                 adicionarDespesa(rl, menu, listas);
                 break;
         
             case 2:
-                listar(listas, menu);
+                listar(rl, listas, menu);
                 break;
 
             case 3:
-                totalGastos(listas, menu);
+                totalGastos(rl, listas, menu);
                 break;
             
             case 4:
-                remover();
+                remover(rl, menu, listas);
                 break;
 
-            case 5:
-                sair();
+            case 0:
+                sair(rl);
         }
     });
 }

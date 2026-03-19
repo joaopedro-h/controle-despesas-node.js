@@ -3,13 +3,31 @@ const Despesa = require("../models/Despesas");
 function adicionarDespesa(rl, menu, listas) {
     
     console.clear();
-    console.log("CONTROLE DE DESPESAS");
+    console.log("");
 
         rl.question(`Descrição: `, (descricao) => {
 
+            if (descricao === "") {
+                console.log("\nDescrição inválida!\n\n");
+                menu();
+                return;                
+            }
+
             rl.question(`Valor da despesa: `, (valor) =>{
 
+                if (valor <= 0) {
+                    console.log("\nValor inválido!\n\n");
+                    menu();
+                    return;
+                }
+
                 rl.question(`Categoria: `, (categoria) => {
+
+                    if (categoria === "") {
+                        console.log("\nCategoria inválida!\n\n");
+                        menu();
+                        return;
+                    }
 
                     const novoGasto = new Despesa(
 
@@ -22,7 +40,7 @@ function adicionarDespesa(rl, menu, listas) {
 
                     listas.push(novoGasto);
                     console.clear;
-                    console.log("Despesa adicionada.\n\n");
+                    console.log("\nDespesa adicionada.\n\n");
                     menu();
 
                 });

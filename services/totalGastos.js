@@ -1,10 +1,16 @@
-function totalGastos(listas, menu) {
+function totalGastos(rl, listas, menu) {
 
     console.clear();
-    console.log("TOTAL DE GASTOS");
+    console.log("=============== RESUMO DAS DESPESAS ===============")
 
-    let valorTotal = 0;
-    let quantidadeID = 0;
+        if (listas.length === 0) {
+            console.log("Nenhuma despesa cadastrada!");
+            menu();
+            return;          
+        }
+
+        let valorTotal = 0;
+        let quantidadeID = 0;
 
         for (let i = 0; i < listas.length; i++) {
         
@@ -12,12 +18,22 @@ function totalGastos(listas, menu) {
 
             quantidadeID = listas.length;
             valorTotal += gasto.valor;
-
         }
 
         console.log(`\nQuantidade de despesas: ${quantidadeID}`);
-        console.log(`Total gasto: ${valorTotal}\n\n`);
-        menu();
+        console.log(`Total gasto: ${valorTotal}\n`);
+        console.log("==================================================")
+        
+        rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {
+
+            if (enter == "") {
+                menu();
+
+            }else{
+                console.log("Inválido!");
+                return;
+            }
+        });
 }
 
-module.exports = totalGastos;
+module.exports = totalGastos; 
