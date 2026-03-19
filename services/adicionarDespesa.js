@@ -1,6 +1,6 @@
 const Despesa = require("../models/Despesas");
 
-function adicionarDespesa(rl, menu, listas) {
+function adicionarDespesa(rl, menu, listas, salvarDados) {
     
     console.clear();
     console.log("");
@@ -39,6 +39,7 @@ function adicionarDespesa(rl, menu, listas) {
                     );
 
                     listas.push(novoGasto);
+                    salvarDados();
                     console.clear;
                     console.log("\nDespesa adicionada.\n\n");
                     menu();

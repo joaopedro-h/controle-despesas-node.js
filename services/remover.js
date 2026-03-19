@@ -1,4 +1,4 @@
-function remover(rl, menu, listas) {
+function remover(rl, menu, listas, salvarDados) {
     
     console.clear();
     console.log("=============== DESPESAS CADASTRADAS ===============\n");
@@ -33,6 +33,7 @@ function remover(rl, menu, listas) {
                 }
 
                 listas.splice(i, 1);
+                salvarDados();
                 console.log("\nDespesa removida!\n");
 
                 rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {

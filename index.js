@@ -5,12 +5,26 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
 const adicionarDespesa = require("./services/adicionarDespesa");
 const listar = require("./services//listar");
 const totalGastos = require("./services/totalGastos");
 const remover = require("./services/remover");
 const sair = require("./services/sair");
+
+
+const fs = require("fs");
+
+function salvarDados() {
+    
+    const dados = JSON.stringify(listas, null, 2);
+    fs.writeFileSync("despesas.json", dados);
+}
+
+function carregarDados() {
+    
+    const dados = fs.readFileSync("despesas.json", "utf8");
+    listas = JSON.parse(dados);
+}
 
 let listas = [];
 function menu() {
@@ -35,7 +49,7 @@ function menu() {
         switch (opcao) {
             
             case 1: 
-                adicionarDespesa(rl, menu, listas);
+                adicionarDespesa(rl, menu, listas, salvarDados);
                 break;
         
             case 2:
@@ -47,7 +61,7 @@ function menu() {
                 break;
             
             case 4:
-                remover(rl, menu, listas);
+                remover(rl, menu, listas, salvarDados);
                 break;
 
             case 0:
@@ -56,5 +70,6 @@ function menu() {
     });
 }
 
+carregarDados();
 menu();
 
