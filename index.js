@@ -12,6 +12,7 @@ const remover = require("./services/remover");
 const sair = require("./services/sair");
 const maiorDespesa = require("./services/maiorDespesa");
 const menorDespesa = require("./services/menorDespesa");
+const editarDespesa = require ("./services/editarDespesa")
 
 
 const fs = require("fs");
@@ -38,11 +39,12 @@ function menu() {
     console.log("4 - Remover despesa.");
     console.log("5 - Maior despesa.");
     console.log("6 - Menor despesa.");
+    console.log("7 - Editar despesa.");
     console.log("0 - Sair.");
     
     rl.question(`\nEscolha uma opção: `, (opcao) => {
 
-        if ((opcao < 0) || (opcao >= 7)) {
+        if ((opcao < 0) || (opcao >= 8)) {
             console.log("\nOpção inválida, tente novamente!\n");
             menu();
             return
@@ -74,6 +76,10 @@ function menu() {
 
             case 6:
                 menorDespesa(rl, listas, menu);
+                break;
+
+            case 7:
+                editarDespesa(rl, listas, menu, salvarDados);
                 break;
 
             case 0:
