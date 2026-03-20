@@ -15,7 +15,7 @@ function remover(rl, menu, listas, salvarDados) {
 
             console.log(`ID: ${gasto.id}`);
             console.log(`Descrição: ${gasto.descricao}`);
-            console.log(`Valor: ${gasto.valor}`);
+            console.log(`Valor: ${gasto.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
             console.log(`Categoria: ${gasto.categoria}\n`);
         }        
             console.log("==================================================\n")

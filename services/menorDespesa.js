@@ -22,7 +22,7 @@ function menorDespesa(rl, listas, menu) {
         }
 
         console.log(`Descrição: ${descricao}`);
-        console.log(`Valor: ${menorValor}`);
+        console.log(`Valor: ${menorValor.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
         console.log(`Categoria: ${categoria}\n\n`);
         console.log("==================================================\n");
         

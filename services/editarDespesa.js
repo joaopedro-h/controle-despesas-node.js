@@ -9,7 +9,7 @@ function editarDespesa(rl, listas, menu, salvarDados) {
 
             console.log(`ID: ${gasto.id}`);
             console.log(`Descrição: ${gasto.descricao}`);
-            console.log(`Valor: ${gasto.valor}`);
+            console.log(`Valor: ${gasto.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
             console.log(`Categoria: ${gasto.categoria}\n\n`); 
         }
 
@@ -34,7 +34,7 @@ function editarDespesa(rl, listas, menu, salvarDados) {
         console.log("\nEditando despesa: \n");
         console.log("========================================\n");
         console.log(`Descrição atual: ${gasto.descricao}`);
-        console.log(`Valor atual: ${gasto.valor}`);
+        console.log(`Valor atual: ${gasto.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
         console.log(`Categoria atual: ${gasto.categoria}\n`);
         console.log("========================================\n\n");
         
