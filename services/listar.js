@@ -4,7 +4,7 @@ function listar(rl, listas, menu) {
     console.log("=============== DESPESAS REGISTRADAS ===============\n");
 
         if (listas.length === 0) {
-            console.log("Nenhuma despesa cadastrada!");
+            console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;           
         }
