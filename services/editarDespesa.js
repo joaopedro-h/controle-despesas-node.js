@@ -3,6 +3,12 @@ function editarDespesa(rl, listas, menu, salvarDados) {
     console.clear();
     console.log("=============== DESPESAS REGISTRADAS ===============\n");
     
+        if (listas.length === 0) {
+            console.log("Nenhuma despesa cadastrada!\n");
+            menu();
+            return;
+        }
+
         for (let i = 0; i < listas.length; i++) {
 
             const gasto = listas[i];

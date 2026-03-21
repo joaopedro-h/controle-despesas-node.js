@@ -1,12 +1,19 @@
 function menorDespesa(rl, listas, menu) {
     
-    let menorValor = listas[0].valor;
-    let descricao = listas[0].descricao;
-    let categoria = listas[0].categoria;
-    let valorAtual = 0;
-    
     console.clear();
     console.log("=============== MENOR DESPESA ===============\n");
+    
+        if (listas.length === 0) {
+            console.log("Nenhuma despesa cadastrada!\n");
+            menu();
+            return;
+        }
+        
+        let menorValor = listas[0].valor;
+        let descricao = listas[0].descricao;
+        let categoria = listas[0].categoria;
+        let id = listas[0].id;
+        let valorAtual = 0;
     
         for (let i = 1; i < listas.length; i++) {
 
@@ -21,6 +28,7 @@ function menorDespesa(rl, listas, menu) {
             }
         }
 
+        console.log(`ID: ${id}`);
         console.log(`Descrição: ${descricao}`);
         console.log(`Valor: ${menorValor.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
         console.log(`Categoria: ${categoria}\n\n`);

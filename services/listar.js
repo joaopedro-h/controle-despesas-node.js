@@ -9,7 +9,6 @@ function listar(rl, listas, menu) {
             return;           
         }
 
-
         for (let i = 0; i < listas.length; i++) {
 
             const gasto = listas[i];

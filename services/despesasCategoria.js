@@ -5,6 +5,12 @@ function despesasCategoria(rl, listas, menu) {
 
     let encontrouDespesa = false;
 
+        if (listas.length === 0) {
+            console.log("Nenhuma despesa cadastrada!\n");
+            menu();
+            return;
+        }
+
         rl.question(`Escolha uma categoria: `, (categoria) => {
 
             for (let i = 0; i < listas.length; i++) {

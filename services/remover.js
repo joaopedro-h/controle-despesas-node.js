@@ -4,7 +4,7 @@ function remover(rl, menu, listas, salvarDados) {
     console.log("=============== DESPESAS CADASTRADAS ===============\n");
     
         if (listas.length === 0) {
-            console.log("Nenhuma despesa cadastrada!");
+            console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;
         }

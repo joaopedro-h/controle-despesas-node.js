@@ -1,10 +1,10 @@
 function totalGastos(rl, listas, menu) {
 
     console.clear();
-    console.log("=============== RESUMO DAS DESPESAS ===============")
+    console.log("=============== RESUMO DAS DESPESAS ===============\n")
 
         if (listas.length === 0) {
-            console.log("Nenhuma despesa cadastrada!");
+            console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;          
         }

@@ -7,6 +7,12 @@ function maiorDespesa(rl, listas, menu) {
     console.clear();
     console.log("=============== MAIOR DESPESA ===============\n");
     
+        if (listas.length === 0) {
+            console.log("Nenhuma despesa cadastrada!\n");
+            menu();
+            return;
+        }
+
         for (let i = 0; i < listas.length; i++) {
             
             const gasto = listas[i];

@@ -42,8 +42,17 @@ function adicionarDespesa(rl, menu, listas, salvarDados) {
                     salvarDados();
                     console.clear;
                     console.log("\nDespesa adicionada.\n\n");
-                    menu();
 
+                    rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {
+
+                        if (enter === "") {
+                            menu();
+
+                        }else{
+                            return;
+                        }
+
+                    });                   
                 });
             });
         }); 
