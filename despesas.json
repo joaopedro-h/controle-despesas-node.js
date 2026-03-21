@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1,
+    "descricao": "NetFlix",
+    "valor": 49.9,
+    "categoria": "Streaming"
+  },
+  {
+    "id": 2,
+    "descricao": "Mercado",
+    "valor": 1000,
+    "categoria": "Alimentação"
+  },
+  {
+    "id": 3,
+    "descricao": "Cinema",
+    "valor": 47.2,
+    "categoria": "Lazer"
+  },
+  {
+    "id": 4,
+    "descricao": "Show",
+    "valor": 310.2,
+    "categoria": "Ingressos"
+  },
+  {
+    "id": 5,
+    "descricao": "Jantar",
+    "valor": 238.55,
+    "categoria": "Alimentação"
+  }
+]

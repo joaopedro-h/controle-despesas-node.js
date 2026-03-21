@@ -16,7 +16,7 @@ function listar(rl, listas, menu) {
             console.log(`ID: ${gasto.id}`);
             console.log(`Descrição: ${gasto.descricao}`);
             console.log(`Valor: ${gasto.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
-            console.log(`Categoria: ${gasto.categoria}\n\n`);
+            console.log(`Categoria: ${gasto.categoria}\n`);
         }
         
         console.log("==================================================\n");

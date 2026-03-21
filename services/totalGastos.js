@@ -20,8 +20,8 @@ function totalGastos(rl, listas, menu) {
             valorTotal += gasto.valor;
         }
 
-        console.log(`\nQuantidade de despesas: ${quantidadeID}`);
-        console.log(`Total gasto: ${valorTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
+        console.log(`Quantidade de despesas: ${quantidadeID}`);
+        console.log(`Total gasto: ${valorTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}\n`);
         console.log("==================================================")
         
         rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {

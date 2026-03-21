@@ -31,7 +31,7 @@ function menorDespesa(rl, listas, menu) {
         console.log(`ID: ${id}`);
         console.log(`Descrição: ${descricao}`);
         console.log(`Valor: ${menorValor.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
-        console.log(`Categoria: ${categoria}\n\n`);
+        console.log(`Categoria: ${categoria}\n`);
         console.log("==================================================\n");
         
         rl.question(`Pressione ENTER para voltar ao menu...`, (enter) => {

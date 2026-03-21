@@ -14,7 +14,8 @@ const maiorDespesa = require("./services/maiorDespesa");
 const menorDespesa = require("./services/menorDespesa");
 const editarDespesa = require ("./services/editarDespesa");
 const despesasCategoria = require("./services/despesasCategoria");
-
+const mediaDespesas = require("./services/mediaDespesas");
+const relatorioGeral = require("./services/relatorioGeral");
 
 const fs = require("fs");
 
@@ -42,11 +43,13 @@ function menu() {
     console.log("6 - Menor despesa.");
     console.log("7 - Editar despesa.");
     console.log("8 - Despesas por categoria.");
+    console.log("9 - Média das despesas.");
+    console.log("10 - Relatório geral."); 
     console.log("0 - Sair.");
     
     rl.question(`\nEscolha uma opção: `, (opcao) => {
 
-        if ((opcao < 0) || (opcao >= 9)) {
+        if ((opcao < 0) || (opcao >= 11)) {
             console.log("\nOpção inválida, tente novamente!\n");
             menu();
             return
@@ -86,6 +89,14 @@ function menu() {
 
             case 8:
                 despesasCategoria(rl, listas, menu);
+                break;
+
+            case 9:
+                mediaDespesas(rl, listas, menu);
+                break;
+
+            case 10:
+                relatorioGeral(rl, listas, menu);
                 break;
 
             case 0:
