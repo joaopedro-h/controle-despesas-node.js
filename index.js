@@ -18,7 +18,6 @@ const mediaDespesas = require("./services/mediaDespesas");
 const relatorioGeral = require("./services/relatorioGeral");
 
 const fs = require("fs");  /* Módulo criado para manipular arquivos em JSON. */
-const { deflate } = require('zlib');
 
 function salvarDados() {  /* Função criada para salvar os dados em JSON. */
     
