@@ -3,13 +3,13 @@ function relatorioGeral(rl, listas, menu) {
     console.clear();
     console.log("=============== RELATÓRIO GERAL ===============\n");
     
-        if (listas.length === 0) {
+        if (listas.length === 0) {  /* If utilizado para verificar se existe alguma despesa. */
             console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;
         }
 
-        let totalDespesas = listas.length;
+        let totalDespesas = listas.length;  /*Varíaveis criadas para controle da função. */
         let totalGasto = 0;
         let maiorDespesa = 0;
         let menorDespesa = listas[0].valor;
@@ -42,7 +42,7 @@ function relatorioGeral(rl, listas, menu) {
 
         console.log("==================================================\n");
     
-        rl.question(`Pressione ENTER para voltar ao menu...`, (enter) => {
+        rl.question(`Pressione ENTER para voltar ao menu...`, (enter) => {  /*Rl adicionado para o usuário pressionar enter caso queira retornar ao menu. */
 
             if (enter === "") {
                 menu();
@@ -54,4 +54,4 @@ function relatorioGeral(rl, listas, menu) {
         });
 }
 
-module.exports = relatorioGeral;
+module.exports = relatorioGeral;  /* Fazendo exportação da função para que seja importada pelo "require" no index.js */

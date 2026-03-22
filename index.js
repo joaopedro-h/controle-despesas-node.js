@@ -1,11 +1,11 @@
 const readline = require('readline');
 
-const rl = readline.createInterface({
+const rl = readline.createInterface({  /* Rl utilizado para receber input do usuário nas funções. */
   input: process.stdin,
   output: process.stdout
 });
 
-const adicionarDespesa = require("./services/adicionarDespesa");
+const adicionarDespesa = require("./services/adicionarDespesa");  /* Aqui é feito a importção de todas as funções para o index. */
 const listar = require("./services//listar");
 const totalGastos = require("./services/totalGastos");
 const remover = require("./services/remover");
@@ -17,21 +17,22 @@ const despesasCategoria = require("./services/despesasCategoria");
 const mediaDespesas = require("./services/mediaDespesas");
 const relatorioGeral = require("./services/relatorioGeral");
 
-const fs = require("fs");
+const fs = require("fs");  /* Módulo criado para manipular arquivos em JSON. */
+const { deflate } = require('zlib');
 
-function salvarDados() {
+function salvarDados() {  /* Função criada para salvar os dados em JSON. */
     
     const dados = JSON.stringify(listas, null, 2);
     fs.writeFileSync("despesas.json", dados);
 }
 
-function carregarDados() {
+function carregarDados() {  /* Função criada para carregar os dados salvos em JSON. */
     
     const dados = fs.readFileSync("despesas.json", "utf8");
     listas = JSON.parse(dados);
 }
 
-let listas = [];
+let listas = [];  /* Declarado o nome do array. */
 function menu() {
     
     console.log("=============== MENU DE DESPESAS ===============\n");
@@ -48,14 +49,8 @@ function menu() {
     console.log("0 - Sair.");
     
     rl.question(`\nEscolha uma opção: `, (opcao) => {
-
-        if ((opcao < 0) || (opcao >= 11)) {
-            console.log("\nOpção inválida, tente novamente!\n");
-            menu();
-            return
-        }
-
-        opcao = Number(opcao);
+        
+        opcao = Number(opcao); /*Feito a conversão de string para número inteiro para que fosse compatível no case.*/
 
         switch (opcao) {
             
@@ -101,10 +96,14 @@ function menu() {
 
             case 0:
                 sair(rl);
+
+            default:
+                console.log("\nOpção inválida, tente novamente!\n");
+                menu();
         }
     });
 }
 
-carregarDados();
+carregarDados();  /* Função foi chamada antes de mostrar o menu para já carregar os dados salvos. */
 menu();
 

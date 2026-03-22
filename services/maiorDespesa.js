@@ -1,13 +1,13 @@
 function maiorDespesa(rl, listas, menu) {
     
-    let maiorValor = 0;
+    let maiorValor = 0; 
     let valorAtual = 0;
     let descricao, categoria;
     
     console.clear();
     console.log("=============== MAIOR DESPESA ===============\n");
     
-        if (listas.length === 0) {
+        if (listas.length === 0) {  /* If utilizado para verificar se existe alguma despesa. */
             console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;
@@ -19,7 +19,7 @@ function maiorDespesa(rl, listas, menu) {
 
             valorAtual = gasto.valor;
 
-            if (valorAtual > maiorValor) {
+            if (valorAtual > maiorValor) {  /* Feito a comparação para saber se o próximo valor é maior. */
                 maiorValor = valorAtual;
                 descricao = gasto.descricao;
                 categoria = gasto.categoria;
@@ -31,7 +31,7 @@ function maiorDespesa(rl, listas, menu) {
         console.log(`Categoria: ${categoria}\n`);
         console.log("==================================================\n");
         
-        rl.question(`Pressione ENTER para voltar ao menu...`, (enter) => {
+        rl.question(`Pressione ENTER para voltar ao menu...`, (enter) => {  /*Rl adicionado para o usuário pressionar enter caso queira retornar ao menu. */
 
             if (enter === "") {
                 menu();
@@ -43,4 +43,4 @@ function maiorDespesa(rl, listas, menu) {
         });
 }
 
-module.exports = maiorDespesa;
+module.exports = maiorDespesa;  /* Fazendo exportação da função para que seja importada pelo "require" no index.js */

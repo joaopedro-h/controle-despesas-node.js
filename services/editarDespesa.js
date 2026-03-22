@@ -3,7 +3,7 @@ function editarDespesa(rl, listas, menu, salvarDados) {
     console.clear();
     console.log("=============== DESPESAS REGISTRADAS ===============\n");
     
-        if (listas.length === 0) {
+        if (listas.length === 0) {  /* If utilizado para verificar se existe alguma despesa. */
             console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;
@@ -22,13 +22,16 @@ function editarDespesa(rl, listas, menu, salvarDados) {
     console.log("==================================================\n");
 
 
-    rl.question(`Insira o ID da despesa que deseja editar: `, (idDespesa) => {
+    rl.question(`Insira o ID da despesa que deseja editar: `, (idDespesa) => { /*Rl utilizado para pegar o ID da despesa que o usuário digitar. */
 
         idDespesa = Number(idDespesa);
 
-        let i = listas.findIndex(gasto => gasto.id === idDespesa)
+         /* "i" vai receber o índice do produto encontrado dentro do array "listas" */
+        let i = listas.findIndex(gasto => gasto.id === idDespesa) /* "gasto" usado no findIndex só existe dentro dessa função. */
 
-        if (i === -1) {
+        /* findIndex percorre todo o array, ele usa "gasto" como parametro para representar cada objeto do array naquele momento, em seguida ele compara "gasto.id" com "idDespesa".*/
+
+        if (i === -1) {  /* Se não for encontrado nenhum código o findIndex retorna -1, nesse caso mostramos a mensagem e voltamos ao menu. */
             console.log("ID inválido!");
             menu();
             return;            
@@ -47,7 +50,7 @@ function editarDespesa(rl, listas, menu, salvarDados) {
         
         rl.question(`Nova descrição: `, (novaDescricao) => {
 
-            if (novaDescricao === "") {
+            if (novaDescricao === "") {  /*If adicionado para caso o usúario queira manter a descrição. */
                 console.log("Descrição não alterada!");                
                 novaDescricao = gasto.descricao
             }
@@ -56,19 +59,19 @@ function editarDespesa(rl, listas, menu, salvarDados) {
 
                 novoValor = Number(novoValor);
 
-                if (novoValor === "") {                         
+                if (novoValor === "") {  /*If adicionado para caso o usúario queira manter o valor. */              
                     console.log("Valor não alterado!");
                     novoValor = gasto.valor;
                 }
 
-                if (novoValor <= 0) {
+                if (novoValor <= 0) {  /*If adicionado para caso o usúario insira um valor zerado ou negativo */
                     console.log("Valor inválido, alteração não realizada!");
                     novoValor = gasto.valor;                   
                 }
 
                 rl.question(`Nova categoria: `, (novaCategoria) => {
 
-                    if (novaCategoria === "") {
+                    if (novaCategoria === "") {  /*If adicionado para caso o usúario queira manter a categoria. */
                         console.log("Categoria não alterada!");
                         novaCategoria = gasto.categoria;                                 
                     }
@@ -76,11 +79,11 @@ function editarDespesa(rl, listas, menu, salvarDados) {
                     gasto.descricao = novaDescricao;
                     gasto.valor = novoValor;
                     gasto.categoria = novaCategoria;
-                    salvarDados();
+                    salvarDados();  /* Função chamada para salvar os dados alterados. */
 
                     console.log("Despesa alterada com sucesso!");
                     
-                    rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {
+                    rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {  /*Rl adicionado para o usuário pressionar enter caso queira retornar ao menu. */
 
                         if (enter === "") {
                             menu();
@@ -96,4 +99,4 @@ function editarDespesa(rl, listas, menu, salvarDados) {
     });
 }
 
-module.exports = editarDespesa;
+module.exports = editarDespesa;  /* Fazendo exportação da função para que seja importada pelo "require" no index.js */

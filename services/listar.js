@@ -3,13 +3,13 @@ function listar(rl, listas, menu) {
     console.clear();
     console.log("=============== DESPESAS REGISTRADAS ===============\n");
 
-        if (listas.length === 0) {
+        if (listas.length === 0) {  /* If utilizado para verificar se existe alguma despesa. */
             console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;           
         }
 
-        for (let i = 0; i < listas.length; i++) {
+        for (let i = 0; i < listas.length; i++) {  /* Usado length para fazer a contagem de despesas, pois conta quantos elementos existem no array. */
 
             const gasto = listas[i];
 
@@ -33,4 +33,4 @@ function listar(rl, listas, menu) {
         });
 }
 
-module.exports = listar;
+module.exports = listar;  /* Fazendo exportação da função para que seja importada pelo "require" no index.js */

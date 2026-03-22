@@ -3,7 +3,7 @@ function totalGastos(rl, listas, menu) {
     console.clear();
     console.log("=============== RESUMO DAS DESPESAS ===============\n")
 
-        if (listas.length === 0) {
+        if (listas.length === 0) {  /* If utilizado para verificar se existe alguma despesa. */
             console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;          
@@ -24,7 +24,7 @@ function totalGastos(rl, listas, menu) {
         console.log(`Total gasto: ${valorTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}\n`);
         console.log("==================================================")
         
-        rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {
+        rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {  /*Rl adicionado para o usuário pressionar enter caso queira retornar ao menu. */
 
             if (enter == "") {
                 menu();
@@ -36,4 +36,4 @@ function totalGastos(rl, listas, menu) {
         });
 }
 
-module.exports = totalGastos; 
+module.exports = totalGastos;  /* Fazendo exportação da função para que seja importada pelo "require" no index.js */

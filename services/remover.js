@@ -3,7 +3,7 @@ function remover(rl, menu, listas, salvarDados) {
     console.clear();
     console.log("=============== DESPESAS CADASTRADAS ===============\n");
     
-        if (listas.length === 0) {
+        if (listas.length === 0) {  /* If utilizado para verificar se existe alguma despesa. */
             console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;
@@ -32,11 +32,11 @@ function remover(rl, menu, listas, salvarDados) {
                     return;
                 }
 
-                listas.splice(i, 1);
-                salvarDados();
+                listas.splice(i, 1);  /* splice() utilizado para fazer a remoção do objeto posição "i" no array */
+                salvarDados();  /* Função chamada para salvar os dados removidos. */
                 console.log("\nDespesa removida!\n");
 
-                rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {
+                rl.question(`Pressione ENTER para voltar ao menu...\n`, (enter) => {  /*Rl adicionado para o usuário pressionar enter caso queira retornar ao menu. */
 
                     if (enter == "") {
                         menu();
@@ -50,4 +50,4 @@ function remover(rl, menu, listas, salvarDados) {
             });
 }
 
-module.exports = remover;
+module.exports = remover;  /* Fazendo exportação da função para que seja importada pelo "require" no index.js */

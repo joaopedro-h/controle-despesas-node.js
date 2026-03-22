@@ -7,7 +7,7 @@ function mediaDespesas(rl, listas, menu) {
         let totalDespesas;
         let mediaGastos;
 
-        if (listas.lenth === 0) {
+        if (listas.lenth === 0) {  /* If utilizado para verificar se existe alguma despesa. */
             console.log("Nenhuma despesa cadastrada!\n");
             menu();
             return;
@@ -29,7 +29,7 @@ function mediaDespesas(rl, listas, menu) {
         
     console.log("==================================================\n");
 
-    rl.question(`Pressione ENTER para voltar ao menu...`, (enter) => {
+    rl.question(`Pressione ENTER para voltar ao menu...`, (enter) => {  /*Rl adicionado para o usuário pressionar enter caso queira retornar ao menu. */
 
         if (enter === "") {
             menu();
@@ -41,4 +41,4 @@ function mediaDespesas(rl, listas, menu) {
     });        
 }
 
-module.exports = mediaDespesas;
+module.exports = mediaDespesas;  /* Fazendo exportação da função para que seja importada pelo "require" no index.js */
